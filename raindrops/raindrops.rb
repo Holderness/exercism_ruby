@@ -1,29 +1,19 @@
 require 'pry'
 
 class Raindrops
+
+  DROPS = {
+    3 => "Pling",
+    5 => "Plang",
+    7 => "Plong"
+  }
   
   def self.convert(num)
-
-    drops = {
-    	3 => "Pling",
-    	5 => "Plang",
-    	7 => "Plong"
-    }
-
     drop_str = ""
-
-  	(1..num).each do |i|
-      if num % i == 0 && drops.keys.include?(i)
-      	drop_str += drops[i]
-      end
+  	DROPS.keys.each do |i|
+      drop_str += DROPS[i] if num % i == 0
     end
-
-    if drop_str.empty?
-    	num.to_s
-    else
-    	drop_str
-    end
-
+    drop_str.empty? ? num.to_s : drop_str
   end
 
 end
