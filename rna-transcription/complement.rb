@@ -10,13 +10,13 @@ class Complement
   RNA_TO_DNA = DNA_TO_RNA.invert
 
   def self.of_dna(dna_nucleotides)
-  	dna_nucleotides.chars.map do |nucleotide|
+  	dna_nucleotides.each_char.map do |nucleotide|
       DNA_TO_RNA[nucleotide]
   	end.join
   end
 
   def self.of_rna(rna_nucleotides)
-  	rna_nucleotides.chars.map do |nucleotide|
+  	rna_nucleotides.each_char.map do |nucleotide|
       RNA_TO_DNA[nucleotide]
   	end.join
   end
