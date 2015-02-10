@@ -1,10 +1,10 @@
 class Squares
 
-	def initialize(num)
-		@num = num
+  def initialize(num)
+    @num = num
     @sum = 0
     @square = 0
-	end
+  end
 
   def square_of_sums
   	@num.times{ |count| @square += (count + 1) }
