@@ -8,11 +8,8 @@ class Raindrops
   }
 
   def self.convert(num)
-    drop_str = DROPS.each_key.map do |i|
-      DROPS[i] if num % i == 0
-    end.join
-    drop_str.empty? ? num.to_s : drop_str
+    drop_select = DROPS.select{ |key| num % key == 0 }
+    drop_select.empty? ? num.to_s : drop_select.values.join
   end
-
 
 end
