@@ -1,34 +1,28 @@
 NUMERALS = {
-	ones: {
-		'1' => 'I', 
-	  '5' => 'V',
-    '10' => 'X' 
-	},
-	tens: {
-		'10' => 'X',
-		'50' => 'L',
-    '100' => 'C'
-	},
-	hundreds: {
-		'100' => 'C',
-	  '500' => 'D',
-    '1000' => 'M'
-	},
-	thousands: {
-    '1000' => 'M'
-  }
+	ones: ['I', 'V', 'X'],
+	tens: ['X', 'L', 'C'],
+	hundreds: ['C', 'D', 'M'],
+	thousands: ['M']
 }
 
 class Fixnum
   def to_roman
-	  backwards_numeral = ""
+	  numeral = ""
     backwards_number = self.to_s.chars.reverse
     d_keys = NUMERALS.keys
     backwards_number.each_with_index do |num, i|
-      if num.to_i < 4
-        backwards_numeral += NUMERALS[d_keys[i]]['1'] * num
+      if num.to_i == 9
+    		numeral +=  NUMERALS[d_keys[i]][2] + NUMERALS[d_keys[i]][0]
+    	elsif num.to_i > 5
+    		numeral +=  NUMERALS[d_keys[i]][0] * (num.to_i - 5) + NUMERALS[d_keys[i]][1]
+      elsif num.to_i > 4
+    		numeral += NUMERALS[d_keys[i]][1]
+    	elsif num.to_i > 3
+    		numeral +=  NUMERALS[d_keys[i]][1] + NUMERALS[d_keys[i]][0]
+      else
+        numeral += NUMERALS[d_keys[i]][0] * num.to_i
       end
     end
-    return backwards_numeral
+    return numeral.reverse
   end
 end
