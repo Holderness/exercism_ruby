@@ -1,14 +1,14 @@
 class Prime
 
-	def self.is_prime(num)
+  def self.is_prime(num)
     (2..(Math.sqrt(num))).each do |i|
       return false if num % i == 0
     end
     return true
-	end
+  end
 
   def self.nth(n)
-  	raise ArgumentError if n <= 0
+  	raise ArgumentError unless n > 0
   	return 2 if n == 1
     count = 3
     index = 1
