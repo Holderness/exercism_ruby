@@ -2,9 +2,9 @@ class Robot
 
   attr_accessor :name
 
-	def initialize
-    @name = name || creates_name
-	end
+  def initialize
+    @name ||= creates_name
+  end
 
   def random_letters
     ('A'..'Z').to_a.shuffle[0,2].join
