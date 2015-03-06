@@ -1,9 +1,7 @@
-require 'pry'
-
-class Fixnum
+class Integer < Numeric
   def to_roman
     num = self
-    pairs = {
+    roman_mappings = {
       'M' => 1000,
       'CM' => 900,
       'D' => 500,
@@ -18,14 +16,14 @@ class Fixnum
       'IV' => 4,
       'I' => 1
     }
+    str = ""
 
-    pairs.reduce("") do | roman_numeral, (letter, val)|
-      while num >= val
-        num -= val
-        roman_numeral << letter
+    roman_mappings.each_pair do |rom_str, rom_mod|
+      while num / rom_mod > 0 do
+        str << rom_str
+        num -= rom_mod
       end
-      roman_numeral
     end
-
+    str
   end
 end
