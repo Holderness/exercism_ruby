@@ -13,7 +13,6 @@ class Fixnum
   def to_roman
     num = self
     NUMERALS.reduce("") do | roman_numeral, (arabic_val, roman_val)|
-      binding.pry
       while num >= arabic_val
         num -= arabic_val
         roman_numeral << roman_val
