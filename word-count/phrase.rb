@@ -9,12 +9,9 @@ class Phrase
   end
 
   def creates_word_hash
-    word_hash = {}
-    word_array.map do |word|
-      word_hash[word] ||= 0
-      word_hash[word] += 1
+    word_array.each_with_object(Hash.new(0)) do |word, hash|
+      hash[word] += 1
     end
-    word_hash
   end
 
   def creates_word_array
