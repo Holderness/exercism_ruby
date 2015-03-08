@@ -12,11 +12,11 @@ class Bob
   end
 
   def is_question?(remark)
-    remark[-1] == '?'
+    remark.end_with?('?')
   end
 
   def is_silence?(remark)
-    remark.strip == ''
+    remark.strip.empty?
   end
 
 end
