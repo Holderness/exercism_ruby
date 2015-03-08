@@ -4,7 +4,7 @@ class Phrase
 
   def initialize(text)
     @text = text
-    @word_array = removes_punctuation(text.downcase).split(' ')
+    @word_array = creates_word_array
     @word_count ||= creates_word_hash
   end
 
@@ -17,8 +17,12 @@ class Phrase
     word_hash
   end
 
+  def creates_word_array
+    removes_punctuation(text.downcase).split(' ')
+  end
+
   def removes_punctuation(text)
     text.tr("^a-zA-Z0-9'", ' ')
   end
-  
+
 end
