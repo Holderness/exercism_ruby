@@ -1,12 +1,12 @@
 
 class Grains
 
-	attr_reader :total, :board_size
+  attr_reader :total, :board_size
 
-	def initialize(options = {})
-		@board_size = options[board_size] || 64
+  def initialize(options = {})
+    @board_size = options[board_size] || 64
     @total ||= calculate_total
-	end
+  end
   
   def square(num)
     (1..num).inject { |sum| sum * 2 }
