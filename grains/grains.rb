@@ -1,9 +1,10 @@
 
 class Grains
 
-	attr_reader :total
+	attr_reader :total, :board_size
 
-	def initialize
+	def initialize(options = {})
+		@board_size = options[board_size] || 64
     @total ||= calculate_total
 	end
   
@@ -12,7 +13,7 @@ class Grains
   end
 
   def calculate_total
-    square(65) - 1
+    square(board_size) * 2 - 1
   end
 
 end
